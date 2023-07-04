@@ -3,19 +3,22 @@
 #include <stdio.h>
 #include <math.h>
 
-int somatorioDeElevadoA3(int n);
+double somatorioDeElevadoA3(int n);
 
 void main(){
+    double resul = somatorioDeElevadoA3(4);
 
+    printf("%0.lf", resul);
 }
 
 
-int somatorioDeElevadoA3(int n){
-    int sum = 0;
-
+double somatorioDeElevadoA3(int n){
+    double sum;
     if(n<=1){
         return(1);
     } else{
-        sum
+        sum = pow(n,3) + somatorioDeElevadoA3(n-1); 
     }
+
+    return sum;
 }
