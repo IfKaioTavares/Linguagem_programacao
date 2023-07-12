@@ -13,5 +13,13 @@ void main(){
     int arrayLenght = 10;
     int A[arrayLenght];
     scanVectot(A, arrayLenght);
-    printf("%d", A[4]);
+    //printf("%d", A[4]);
+    int j = 0;
+    for(int i = 0; i<arrayLenght;i++){
+        if( (A[i] % 2) == 0 ){
+            j++;
+        }
+    }
+
+    printf("%d", j);
 }
