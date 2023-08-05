@@ -1,5 +1,6 @@
 //Defina uma estrutura chamada "Pessoa" com os campos nome, idade e altura. Leia e armazene os dados de cinco pessoas em um vetor e exiba o nome das pessoas da mais alta para a mais baixa.
 #include <stdio.h>
+#include <string.h>
 
 struct pessoa{
     char nome[20];
@@ -20,33 +21,26 @@ void declaraPessoas(struct pessoa *pessoas){
 }
 
 void exibiAltos(struct pessoa *pessoas){
-    int pos[5];
-    float alturas[5];
-    for (int i = 0; i <5; i++){
-        alturas[i] = pessoas[i].altura;
-        pos[i] = i;
-    }
+  for (int i = 0; i < 5; i++){
+    for(int j = i + 1; j < 5; j++){
+      if(pessoas[j].altura> pessoas[i].altura){
+          struct pessoa aux;
+          aux.altura = pessoas[j].altura;
+          aux.idade = pessoas[j].idade;
+          strcpy(aux.nome, pessoas[j].nome);
 
-    printf("Pessoas mais altas para mais baixas:\n");
-    for (int i = 0; i <5; i++){
-        float maiorAltura = alturas[i];
-        int posMaiorAltura = i;
-        int valorPos = pos[i];
-        for (int j = i; j < 5; j++)
-        {
-            if(alturas[j] > maiorAltura){
-                maiorAltura = alturas[j];
-                posMaiorAltura = j;
-                valorPos = pos[j];
-            }
+          pessoas[j].altura = pessoas[i].altura;
+          pessoas[j].idade = pessoas[i].idade;
+          strcpy(pessoas[j].nome, pessoas[i].nome);
+
+          pessoas[i].altura = aux.altura;
+          pessoas[i].idade = aux.idade;
+          strcpy(pessoas[i].nome, aux.nome);
         }
-
-        alturas[posMaiorAltura] = alturas[i];
-        alturas[i] = maiorAltura;
-        pos[posMaiorAltura] = pos[i];
-        pos[i] = valorPos;        
-        printf("%s tem %f metros\n",pessoas[pos[i]].nome, alturas[i]);
-    }
+      }
+    printf("%s\n", pessoas[i].nome);
+  }
+  
 }
 
 void main(){
