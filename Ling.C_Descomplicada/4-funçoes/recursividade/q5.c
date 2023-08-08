@@ -11,6 +11,6 @@ int vetorSum(int vetor[], int tam){
 
 
 void main(){
-  int vetor[] = {1, 2, 3 ,4 ,5 ,6 ,7 ,8 ,9};
+  int vetor[] = {1,2,3,4,5,6,7,8,9};
   printf("%d", vetorSum(vetor, 9));
 }
