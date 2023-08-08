@@ -40,7 +40,7 @@ void main(){
 
     regis *list = registerList(N);
 
-     printf("\nDados do vetor de Cadastro:\n");
+    printf("\nDados do vetor de Cadastro:\n");
     for (int i = 0; i < N; i++) {
         printf("Pessoa %d:\n", i + 1);
         printf("Nome: %s\n", list[i].name);
